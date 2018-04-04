@@ -1,0 +1,29 @@
+
+buildscript {
+    ext.kotlin_version = '1.2.30'
+    ext.dokka_version = '0.9.16'
+    ext.bintray_version = '0.8.0'
+    ext.support_version = "27.1.0"
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"
+        classpath "com.novoda:bintray-release:$bintray_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

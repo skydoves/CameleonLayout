@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CameleonLayout">
+        <attr name="maxProgress" format="float"/>
+        <attr name="duration" format="integer"/>
+        <attr name="delay" format="integer"/>
+        <attr name="density" format="integer"/>
+        <attr name="autoUnFill" format="boolean"/>
+        <attr name="drawOnBack" format="boolean"/>
+        <attr name="secondLayout" format="reference"/>
+    </declare-styleable>
+</resources>

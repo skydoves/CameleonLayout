@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skydoves.cameleonlayout.CameleonLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cameleonLayout"
+    android:layout_width="140dp"
+    android:layout_height="110dp"
+    android:background="@drawable/thumbnail1"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="15dp"
+    app:secondLayout="@layout/layout_second"
+    app:duration="1000"
+    app:density="2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            android:alpha="0.6"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_cartoonist_coin"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/item_episode_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="10 coin"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</com.skydoves.cameleonlayout.CameleonLayout>
