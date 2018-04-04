@@ -18,6 +18,7 @@ dependencies {
 Could be used just like using normal Layout.
 
 ```java
+cameleonLayout.setSecondLayout(R.layout.layout_second) // set the second layout
 cameleonLayout.drawSecondLayout() // start drawing second layout
 ```
 
