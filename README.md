@@ -30,7 +30,10 @@ override fun onFilledStatusChanged(status: FilledStatus) {
    when(status) {
       is FilledStatus.UnFilled ->  Toast.makeText(this, "unFilled", Toast.LENGTH_SHORT).show()
       is FilledStatus.Loading ->  Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show()
-      is FilledStatus.Filled -> Toast.makeText(this, "Filled", Toast.LENGTH_SHORT).show()
+      is FilledStatus.Filled -> {
+          cameleonLayout.eraseSecondLayout() // erase the second layout gradually when be Filled.
+          Toast.makeText(this, "Filled", Toast.LENGTH_SHORT).show()
+       }
    }
 }
 ```
