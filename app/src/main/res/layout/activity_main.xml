@@ -1,17 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@color/warm_blue">
 
-    <include layout="@layout/item_episode"/>
+    <com.skydoves.cameleonlayout.CameleonLayout
+        android:id="@+id/mainlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:secondLayout="@layout/layout_second23"
+        app:duration="200"
+        app:density="1"
+        app:delay="2000"
+        app:autoUnFill="true">
 
-    <include layout="@layout/item_episode_glance"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <include layout="@layout/item_episode1"/>
+        <RelativeLayout
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true">
 
-    <include layout="@layout/layout_progress"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/movie"
+                android:scaleType="fitXY"/>
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"
+                android:alpha="0.5"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:text="Details"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    </com.skydoves.cameleonlayout.CameleonLayout>
+</RelativeLayout>

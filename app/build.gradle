@@ -24,5 +24,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.github.skydoves:baserecyclerviewadapter:0.1.0"
+    compile 'com.vipulasri:ticketview:1.0.5'
     implementation project(':cameleonlayout')
 }
