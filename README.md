@@ -4,6 +4,7 @@
 <br>
 A library that let you implement double-layer-layout changing with slide animation.
 
+![gif1](https://user-images.githubusercontent.com/24237865/38401210-667563ea-398f-11e8-8c1f-9c2787e74b27.gif)
 ![gif0](https://user-images.githubusercontent.com/24237865/38308278-8df0398e-3851-11e8-8f08-a53fad45b50a.gif)
 
 ## Including in your project
