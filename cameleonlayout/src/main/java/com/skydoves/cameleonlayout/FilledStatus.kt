@@ -18,7 +18,7 @@
 package com.skydoves.cameleonlayout
 
 sealed class FilledStatus {
-    class UnFilled: FilledStatus()
-    class Loading: FilledStatus()
-    class Filled: FilledStatus()
+    object UnFilled : FilledStatus()
+    object Loading : FilledStatus()
+    object Filled : FilledStatus()
 }
