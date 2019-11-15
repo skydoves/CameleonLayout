@@ -69,13 +69,13 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
 
     private fun onCreate() {
         this.layer = FrameLayout(context)
-        this.status = FilledStatus.UnFilled()
+        this.status = FilledStatus.UnFilled
         this.handler = FillResolveHandler(this)
         this.filledStatusListener = this
         this.setOnClickListener(this)
 
-        measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
+        measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
     }
 
     private fun getAttrs(attrs: AttributeSet) {
@@ -105,7 +105,7 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
         }
     }
 
-    fun setSecondLayout(layout: Int) {
+    private fun setSecondLayout(layout: Int) {
         val inflater = LayoutInflater.from(context)
         this.secondLayout = inflater.inflate(layout, null)
     }
@@ -113,8 +113,8 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
     private fun initSecondLayout() {
         this.secondLayout.layoutParams = LayoutParams(measuredWidth, measuredHeight)
         this.secondLayout.measure(
-                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
         this.layer.addView(this.secondLayout)
     }
 
@@ -122,8 +122,8 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
         this.layer.let {
             it.layoutParams = ViewGroup.LayoutParams(measuredWidth, measuredHeight)
             it.measure(
-                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
+                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
             it.isDrawingCacheEnabled = true
             it.buildDrawingCache()
         }
@@ -171,7 +171,7 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
 
     fun drawSecondLayout() {
         if(status is FilledStatus.UnFilled) {
-            fireFilledStatus(FilledStatus.Loading())
+            fireFilledStatus(FilledStatus.Loading)
             updateProgress(density.toFloat())
 
             val runnable = Runnable {
@@ -188,14 +188,14 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
         }
     }
 
-    fun eraseSecondLayout() {
+    private fun eraseSecondLayout() {
         if(status is FilledStatus.Filled) {
             val runnable = Runnable {
                 thread.let {
                     this.timer = Timer()
                     val timerTask = object : TimerTask() {
                         override fun run() {
-                            fireFilledStatus(FilledStatus.Loading())
+                            fireFilledStatus(FilledStatus.Loading)
                             while (progress > 0) {
                                 Thread.sleep((duration/maxProgress).toLong())
                                 handler.sendEmptyMessage((progress - density).toInt())
@@ -218,8 +218,8 @@ class CameleonLayout : FrameLayout, FilledStatusListener, View.OnClickListener {
             cameleonLayout.let {
                 it.updateProgress((msg?.what)?.toFloat()!!)
                 if(it.status is FilledStatus.Loading) {
-                    if (msg.what > it.maxProgress) it.fireFilledStatus(FilledStatus.Filled())
-                    if (msg.what <= 0) { it.fireFilledStatus(FilledStatus.UnFilled()) }
+                    if (msg.what > it.maxProgress) it.fireFilledStatus(FilledStatus.Filled)
+                    if (msg.what <= 0) { it.fireFilledStatus(FilledStatus.UnFilled) }
                 }
             }
         }
